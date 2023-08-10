@@ -10,18 +10,19 @@ App listado y detalle de perros
    Se pasó a la version 17 en CompileOptions y KotlinOptions
 [x] Se creó la estructura de paquetes: data(local y remote) y view(correspondiente a la presentación)
 [X] Se creó la branch funcionalidad/consumo_remoto
-[] 2 pantallas: Listado y Detalle
-[] Navigation
-[] Listado: RecyclerView + ViewHolder + Adapter
-[] Detalle: RecyclerView + ViewHolder + Adapter
 [x] Remoto:
     [x] DataClass
     [x] API (interfaz)
     [x] RetroFit
-[] Local:
-    [] DataBase
-    [] Entity
-    [] Dao
+[x] Local:
+    [x] DataBase
+    [x] Entity
+    [x] Dao
+[] 2 pantallas: Listado y Detalle
+[] Navigation
+[] Listado: RecyclerView + ViewHolder + Adapter
+[] Detalle: RecyclerView + ViewHolder + Adapter
+
  */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

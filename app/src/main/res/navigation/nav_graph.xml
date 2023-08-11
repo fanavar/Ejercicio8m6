@@ -9,5 +9,14 @@
         android:id="@+id/listadoRazas"
         android:name="cl.awakelab.ejercicio8m6.view.ListadoRazas"
         android:label="fragment_listado_razas"
-        tools:layout="@layout/fragment_listado_razas" />
+        tools:layout="@layout/fragment_listado_razas" >
+        <action
+            android:id="@+id/action_listadoRazas_to_detalleFragment"
+            app:destination="@id/detalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleFragment"
+        android:name="cl.awakelab.ejercicio8m6.view.DetalleFragment"
+        android:label="fragment_detalle"
+        tools:layout="@layout/fragment_detalle" />
 </navigation>

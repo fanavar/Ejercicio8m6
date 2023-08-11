@@ -2,7 +2,9 @@ package cl.awakelab.ejercicio8m6.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import cl.awakelab.ejercicio8m6.R
 import cl.awakelab.ejercicio8m6.data.local.RazaPerroEntity
 import cl.awakelab.ejercicio8m6.databinding.FragmentListadoRazasBinding
 import cl.awakelab.ejercicio8m6.databinding.ItemRazasBinding
@@ -52,6 +54,9 @@ class AdaptadorRazas: RecyclerView.Adapter<AdaptadorRazas.ItemRazasViewHolder>()
    class ItemRazasViewHolder(val razasVistas: ItemRazasBinding): RecyclerView.ViewHolder(razasVistas.root) {
         fun bind(raza: RazaPerroEntity){
             razasVistas.textViewRaza.text = raza.raza
+            razasVistas.cardView.setOnClickListener {
+                Navigation.findNavController(razasVistas.root).navigate(R.id.action_listadoRazas_to_detalleFragment)
+            }
 
         }
     }

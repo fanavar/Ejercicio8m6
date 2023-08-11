@@ -8,10 +8,8 @@ import cl.awakelab.ejercicio8m6.data.local.RazaPerroEntity
 import cl.awakelab.ejercicio8m6.data.remote.RazaPerroAPI
 
 class Repositorio(private val razaPerroAPI: RazaPerroAPI, private val razaPerroDao: RazaPerroDao) {
-
     fun getRazaPerroEntity(): LiveData<List<RazaPerroEntity>> = razaPerroDao.getRazasPerro()
     fun getRazaDetalleEntity(id: String): LiveData<List<RazaDetalleEntity>> = razaPerroDao.getRazaDetalle(id)
-
     suspend fun getRazasPerro() {
         val response = razaPerroAPI.getData()//acá llegan los datos
         if(response.isSuccessful){ // llegaron los datos?

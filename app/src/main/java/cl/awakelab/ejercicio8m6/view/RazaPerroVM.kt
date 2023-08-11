@@ -13,6 +13,8 @@ class RazaPerroVM(application: Application): AndroidViewModel(application) {
     private val repositorio: Repositorio
 
     fun razaLiveData() = repositorio.getRazaPerroEntity()
+
+    fun detalleLiveData(id: String) = repositorio.getRazaDetalleEntity(id)
     init {
         val api = RazaPerroRetroFit.getRetrofitRazaPerro()
         val razaPerroDatabase= RazaPerroDatabase.getDataBase(application).getRazaPerroDao()
@@ -20,6 +22,10 @@ class RazaPerroVM(application: Application): AndroidViewModel(application) {
     }
     fun getRazasPerro() = viewModelScope.launch {
         repositorio.getRazasPerro()
+    }
+
+    fun getDetallePerroVM(id: String) = viewModelScope.launch {
+        repositorio.getDetallePerro(id)
     }
 
 }

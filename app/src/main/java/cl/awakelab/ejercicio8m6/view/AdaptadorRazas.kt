@@ -1,5 +1,6 @@
 package cl.awakelab.ejercicio8m6.view
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
@@ -53,9 +54,11 @@ class AdaptadorRazas: RecyclerView.Adapter<AdaptadorRazas.ItemRazasViewHolder>()
     }
    class ItemRazasViewHolder(val razasVistas: ItemRazasBinding): RecyclerView.ViewHolder(razasVistas.root) {
         fun bind(raza: RazaPerroEntity){
+            val bundle = Bundle()
             razasVistas.textViewRaza.text = raza.raza
             razasVistas.cardView.setOnClickListener {
-                Navigation.findNavController(razasVistas.root).navigate(R.id.action_listadoRazas_to_detalleFragment)
+                bundle.putString("id", raza.raza)
+                Navigation.findNavController(razasVistas.root).navigate(R.id.action_listadoRazas_to_detalleFragment, bundle)
             }
 
         }

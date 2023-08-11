@@ -31,6 +31,7 @@ class ListadoRazas : Fragment() {
     }
     private fun initAdapter() {
         val adapter = AdaptadorRazas()
+
         binding.recyclerView.adapter = adapter
         razaPerroVM.razaLiveData().observe(viewLifecycleOwner){
             adapter.setData(it)

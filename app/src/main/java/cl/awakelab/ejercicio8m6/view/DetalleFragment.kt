@@ -38,7 +38,11 @@ class DetalleFragment : Fragment() {
     }
 
     private fun initAdapter() {
-
+        val adapter = AdaptadorDetalle()
+        binding.recyclerViewDetalle.adapter = adapter
+        razaPerroVM.detalleLiveData(param1.toString()).observe(viewLifecycleOwner){
+            adapter.setDataDetalle(it)
+        }
     }
 
 

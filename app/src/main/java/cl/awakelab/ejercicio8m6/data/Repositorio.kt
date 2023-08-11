@@ -1,10 +1,13 @@
 package cl.awakelab.ejercicio8m6.data
 
+import androidx.lifecycle.LiveData
 import cl.awakelab.ejercicio8m6.data.local.RazaPerroDao
 import cl.awakelab.ejercicio8m6.data.local.RazaPerroEntity
 import cl.awakelab.ejercicio8m6.data.remote.RazaPerroAPI
 
 class Repositorio(private val razaPerroAPI: RazaPerroAPI, private val razaPerroDao: RazaPerroDao) {
+
+    fun getRazaPerroEntity(): LiveData<List<RazaPerroEntity>> = razaPerroDao.getRazasPerro()
 
     suspend fun getRazasPerro() {
         val response = razaPerroAPI.getData()//acá llegan los datos

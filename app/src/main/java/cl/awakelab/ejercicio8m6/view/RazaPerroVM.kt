@@ -11,6 +11,8 @@ import kotlinx.coroutines.launch
 class RazaPerroVM(application: Application): AndroidViewModel(application) {
 
     private val repositorio: Repositorio
+
+    fun razaLiveData() = repositorio.getRazaPerroEntity()
     init {
         val api = RazaPerroRetroFit.getRetrofitRazaPerro()
         val razaPerroDatabase= RazaPerroDatabase.getDataBase(application).getRazaPerroDao()

@@ -44,9 +44,9 @@ class AdaptadorRazas: RecyclerView.Adapter<AdaptadorRazas.ItemRazasViewHolder>()
         holder.bind(raza)
     }
 
-    fun setData(razas: List<RazaPerroEntity>){
+    fun setData(raza: List<RazaPerroEntity>){
         this.listItemRazas.clear()
-        this.listItemRazas.addAll(razas)
+        this.listItemRazas.addAll(raza)
         notifyDataSetChanged()
     }
    class ItemRazasViewHolder(val razasVistas: ItemRazasBinding): RecyclerView.ViewHolder(razasVistas.root) {

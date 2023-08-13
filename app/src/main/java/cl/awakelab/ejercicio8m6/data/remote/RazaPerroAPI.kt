@@ -8,6 +8,6 @@ interface RazaPerroAPI {
     @GET("breeds/list/all")
     suspend fun getData(): Response<RazaPerro>
 
-    @GET("/breed/{id}/images")
+    @GET("breed/{id}/images")
     suspend fun getDetallePerro(@Path("id") id: String): Response<DetallePerro>
 }

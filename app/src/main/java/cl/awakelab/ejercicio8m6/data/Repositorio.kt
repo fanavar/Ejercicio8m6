@@ -16,8 +16,8 @@ class Repositorio(private val razaPerroAPI: RazaPerroAPI, private val razaPerroD
             val message = response.body()!!.message //solo sacando la parte de message, sin status
             val keys = message.keys
 
-            keys.forEach {
-                val razaPerroEntity = RazaPerroEntity(it)
+            keys.forEach {raza->
+                val razaPerroEntity = raza.toRazaEntity()
                 razaPerroDao.insertRazaPerro(razaPerroEntity)
             }
         }else{
@@ -27,8 +27,8 @@ class Repositorio(private val razaPerroAPI: RazaPerroAPI, private val razaPerroD
     suspend fun getDetallePerro(id: String) {
         val response = razaPerroAPI.getDetallePerro(id)
         if(response.isSuccessful){
-            response.body()!!.message.forEach{
-                val razaDetalleEntity = RazaDetalleEntity(id, it)
+            response.body()!!.message.forEach{url->
+                val razaDetalleEntity = url.toEntity(id) //Transforma desde la respuesta remota hacía la entidad
                 razaPerroDao.insertDetallePerro(razaDetalleEntity)
             }
         }else{
